@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ee431806-be86-479a-b4c2-9ed1b3950ecf" name="pokedex.local" url="http://pokedex.local">
+        <fileTransfer port="0" mountedRoot="" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
