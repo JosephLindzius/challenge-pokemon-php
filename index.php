@@ -1,44 +1,97 @@
-
-
 <?php
-$pokemon = $_POST["name"];
-// Takes raw data from the request
+$pokemon = $_GET["name"];
 $json = file_get_contents("https://pokeapi.co/api/v2/pokemon/$pokemon/");
-
-// Converts it into a PHP object
 $data = json_decode($json, true);
 
-//var_dump($data);
-
-
-echo "<hr>";
-echo $data[id];
-echo "<hr>";
-echo $data[name];
-echo "<hr>";
 $pictureArray = $data[sprites];
 $srcPic = $pictureArray[front_default];
-echo "<img src=$srcPic>";
-echo "<hr>";
+
 $movements = $data[moves];
-
-//var_dump($movements);
-
 foreach ($movements as $item) {
     $name = $item[move];
-    //echo $name;
-     echo "$name[name]";
-           echo "<br>";
-  //  for ($i = 0; $i < 4; $i++) {
-
-   // }
+    $allMoves[] = $name[name];
 }
 
-/*
- pokemonInfo.moves.forEach(function(move){
-                moveNames.push(move.move.name);
-            });
-            for (var i = 0; i < 4; i++) {
-                var removedMove = moveNames.splice(getRandomIndex(moveNames), 1);
-                document.querySelectorAll('.move')[i].innerText = removedMove;
-            }
+$species = $data[species];
+$speciesURL = $species[url];
+
+$json1 = file_get_contents("$speciesURL");
+$data1 = json_decode($json1, true);
+
+$generationChecker = $data1[evolves_from_species];
+
+echo "<!doctype html>
+<html lang=\"en\">
+<head>
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\"
+          content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">
+    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">
+    <title>Pokedex</title>
+    <link rel=\"stylesheet\" href=\"./assets/css/style.css\">
+</head>
+<body>
+<header id=\"header\">
+    <h1>Pokedex</h1>
+</header>
+<div id=\"masterWrapper\">
+    <div id=\"leftWrapper\">
+        <div id=\"lens2\"></div>
+        <div id=\"lens3\"></div>
+        <div id=\"lens4\"></div>
+        <div id=\"lens\">
+            <div id=\"lensFlare\">
+            </div>
+        </div>
+        <div id=\"left\">
+            <div id=\"searchWrapper\">
+            <form action='index.php' method='get'>
+<input type='text' id='input' name='name'><input type='submit' id='submit' value='Search'>
+</form>
+                  
+            </div>
+            <div id=\"pokemonWrapper\">
+                <div id=\"name\">$data[name]</div>
+                <img src=\"$srcPic\" alt=\"\" id=\"sprite\">
+            </div>
+            <div id=\"extraWrapper\">
+                <div id=\"id\">$data[id]</div>
+            </div>
+        </div>
+    </div>
+
+    <div id=\"rightWrapper\">
+        <div id=\"right\">
+            <div id=\"masterHinge\">
+                <div id=\"hinge\">
+                    <div id=\"topHinge\"></div>
+                    <div id=\"bottomHinge\"></div>
+                </div>
+            </div>
+            <div id=\"move-wrapper\">";
+for ($i = 0; $i < 4; $i++) {
+    echo "<div class=\"move\">";
+    echo $allMoves[array_rand($allMoves)];
+    echo "</div>";
+
+}
+echo "</div>
+            <div id=\"deEWrapper\" class=\"displayScreen\">";
+if ($generationChecker === null) {
+    echo "<div id=\"evolution\">I'm a baby!</div>";
+} else {
+    $devolve = $generationChecker[name];
+    $json2 = file_get_contents("https://pokeapi.co/api/v2/pokemon/$devolve/");
+    $data2 = json_decode($json2, true);
+    $sprite = $data2[sprites];
+    $devolvePictureSource = $sprite[front_default];
+    echo "<div id=\"evolution\">$data2[name]</div>";
+    echo "<img src=\"$devolvePictureSource\" alt=\"\" id=\"de-evolved\">";
+}
+echo "  
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>";

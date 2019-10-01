@@ -1,5 +1,64 @@
 <?php
+echo "<!doctype html>
+<html lang=\"en\">
+<head>
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\"
+          content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">
+    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">
+    <title>Pokedex</title>
+    <link rel=\"stylesheet\" href=\"./assets/css/style.css\">
+</head>
+<body>
+<header id=\"header\">
+    <h1>Pokedex</h1>
+</header>
+<div id=\"masterWrapper\">
+    <div id=\"leftWrapper\">
+        <div id=\"lens2\"></div>
+        <div id=\"lens3\"></div>
+        <div id=\"lens4\"></div>
+        <div id=\"lens\">
+            <div id=\"lensFlare\">
+            </div>
+        </div>
+        <div id=\"left\">
+            <div id=\"searchWrapper\">
+            <form action='index.php' method='post'>
+<input type='text' id='input' name='name'><input type='submit' id='submit' value='Search'>
+</form>
+                  
+            </div>
+            <div id=\"pokemonWrapper\">
+                <div id=\"name\"></div>
+                <img src=\"assets/img/pokeball.png\" alt=\"\" id=\"sprite\">
+            </div>
+            <div id=\"extraWrapper\">
+                <div id=\"id\"></div>
+            </div>
+        </div>
+    </div>
 
-echo "<form action='index.php' method='post'>
-<input type='text' name='name'><input type='submit' id='submit' value='submit'>Pika!</input>
-</form>";
+    <div id=\"rightWrapper\">
+        <div id=\"right\">
+            <div id=\"masterHinge\">
+                <div id=\"hinge\">
+                    <div id=\"topHinge\"></div>
+                    <div id=\"bottomHinge\"></div>
+                </div>
+            </div>
+            <div id=\"move-wrapper\">
+                <div class=\"move\"></div>
+                <div class=\"move\"></div>
+                <div class=\"move\"></div>
+                <div class=\"move\"></div>
+            </div>
+            <div id=\"deEWrapper\" class=\"displayScreen\">
+                <div id=\"evolution\"></div>
+                <img src=\"assets/img/pokeball.png\" alt=\"\" id=\"de-evolved\">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>";
