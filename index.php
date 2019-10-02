@@ -1,24 +1,77 @@
 <?php
-$pokemon = $_GET["name"];
-$json = file_get_contents("https://pokeapi.co/api/v2/pokemon/$pokemon/");
-$data = json_decode($json, true);
 
-$pictureArray = $data[sprites];
-$srcPic = $pictureArray[front_default];
 
-$movements = $data[moves];
-foreach ($movements as $item) {
-    $name = $item[move];
-    $allMoves[] = $name[name];
+function getData () {
+    $pokemon = $_GET["name"];
+    $json = file_get_contents("https://pokeapi.co/api/v2/pokemon/$pokemon/");
+    $data = json_decode($json, true);
+    return $data;
 }
 
-$species = $data[species];
-$speciesURL = $species[url];
+function getName () {
+    $data = getData();
+    return $data["name"];
+}
 
-$json1 = file_get_contents("$speciesURL");
-$data1 = json_decode($json1, true);
+function getID () {
+    $data = getData();
+    return $data["id"];
+}
 
-$generationChecker = $data1[evolves_from_species];
+function getPictureURL () {
+    $data = getData();
+    $pictureArray = $data["sprites"];
+    $srcPic = $pictureArray["front_default"];
+    return $srcPic;
+}
+
+function getMoves () {
+    $data = getData();
+    $allMoves = [];
+    $movements = $data["moves"];
+    foreach ($movements as $item) {
+        $name = $item["move"];
+        $allMoves[] = $name["name"];
+    }
+    return $allMoves[array_rand($allMoves)];
+}
+
+function showMoves () {
+    for ($i = 0; $i < 4; $i++) {
+        echo "<div class=\"move\">";
+        echo getMoves();
+        echo "</div>";
+    }
+}
+
+function getPrevious () {
+    $data = getData();
+    $species = $data["species"];
+    $speciesURL = $species["url"];
+    $json1 = file_get_contents("$speciesURL");
+    $data1 = json_decode($json1, true);
+    $generationChecker = $data1["evolves_from_species"];
+    return $generationChecker;
+}
+
+function showPreviousEvolution($_generationChecker) {
+    if ($_generationChecker === null) {
+        echo "<div id=\"evolution\">I'm a baby!</div>";
+    } else {
+        $devolve = $_generationChecker["name"];
+        $json2 = file_get_contents("https://pokeapi.co/api/v2/pokemon/$devolve/");
+        $data2 = json_decode($json2, true);
+        $sprite = $data2["sprites"];
+        $devolvePictureSource = $sprite["front_default"];
+        echo "<div id=\"evolution\">$data2[name]</div>";
+        echo "<img src=\"$devolvePictureSource\" alt=\"\" id=\"de-evolved\">";
+    }
+}
+
+$name = getName();
+$id = getID();
+$srcPic = getPictureURL();
+$generationChecker = getPrevious();
 
 echo "<!doctype html>
 <html lang=\"en\">
@@ -46,16 +99,16 @@ echo "<!doctype html>
         <div id=\"left\">
             <div id=\"searchWrapper\">
             <form action='index.php' method='get'>
-<input type='text' id='input' name='name'><input type='submit' id='submit' value='Search'>
-</form>
+                <input type='text' id='input' name='name'><input type='submit' id='submit' value='Search'>
+            </form>
                   
             </div>
             <div id=\"pokemonWrapper\">
-                <div id=\"name\">$data[name]</div>
-                <img src=\"$srcPic\" alt=\"\" id=\"sprite\">
+                <div id=\"name\">$name</div>
+                <img src=\"$srcPic\" alt=\"picture of $name\" id=\"sprite\">
             </div>
             <div id=\"extraWrapper\">
-                <div id=\"id\">$data[id]</div>
+                <div id=\"id\">$id</div>
             </div>
         </div>
     </div>
@@ -69,25 +122,10 @@ echo "<!doctype html>
                 </div>
             </div>
             <div id=\"move-wrapper\">";
-for ($i = 0; $i < 4; $i++) {
-    echo "<div class=\"move\">";
-    echo $allMoves[array_rand($allMoves)];
-    echo "</div>";
-
-}
+echo showMoves();
 echo "</div>
             <div id=\"deEWrapper\" class=\"displayScreen\">";
-if ($generationChecker === null) {
-    echo "<div id=\"evolution\">I'm a baby!</div>";
-} else {
-    $devolve = $generationChecker[name];
-    $json2 = file_get_contents("https://pokeapi.co/api/v2/pokemon/$devolve/");
-    $data2 = json_decode($json2, true);
-    $sprite = $data2[sprites];
-    $devolvePictureSource = $sprite[front_default];
-    echo "<div id=\"evolution\">$data2[name]</div>";
-    echo "<img src=\"$devolvePictureSource\" alt=\"\" id=\"de-evolved\">";
-}
+echo showPreviousEvolution($generationChecker);
 echo "  
             </div>
         </div>
