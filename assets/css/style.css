@@ -1,7 +1,7 @@
 #leftWrapper {
   position: relative;
   background-color: darkred;
-  width: 400px;
+  width: 450px;
   border-bottom-left-radius: 50%;
   border-top-left-radius: 33px;
   box-shadow: 0 0 0px -2px red inset, 0 -8px 15px -3px black inset, 0 -5px 44px 7px black inset, 1px -1px 4px 0px black; }
@@ -52,7 +52,7 @@
       border-radius: 50%; }
 
 #rightWrapper {
-  width: 400px; }
+  width: 450px; }
 
 #right {
   top: 34px;
@@ -146,7 +146,7 @@
 @media only screen and (max-width: 768px) {
   #masterWrapper {
     margin-top: 20%;
-    transform: scale(1.5);
+    transform: scale(1.1);
     height: 50%;
     margin-left: 10px;
     margin-right: 10px; }
@@ -195,7 +195,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 400px;
+  width: 450px;
   padding: 50px;
   background-color: darkred;
   border-top-left-radius: 40%;
@@ -227,7 +227,21 @@
       border-radius: 5px; }
   #left #submit:hover {
     cursor: pointer; }
+  #left #pictureRotate {
+    display: flex; }
+    #left #pictureRotate .rotateButton {
+      margin-top: 100px;
+      background-color: deepskyblue;
+      height: 40px;
+      width: 40px;
+      box-shadow: 0px 0px 82px #040851 inset, 0px 0px 5px 4px #600707 inset, 0 0 2px 2px black;
+      border-radius: 10px; }
+  #left .rotateButton:hover {
+    transform: scale3d(0.99, 0.96, 0.8); }
   #left #pokemonWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     padding: 30px;
     margin: auto;
     margin-top: 20px;
@@ -240,6 +254,7 @@
     border-radius: 10px; }
     #left #pokemonWrapper #name {
       margin: auto;
+      padding-bottom: 3px;
       font-size: 12px; }
     #left #pokemonWrapper #sprite {
       margin: auto;
@@ -286,45 +301,6 @@
       border-radius: 10px;
       text-align: center; }
 
-/*#id, #previous, #next {
-      flex-grow: 1;
-    }
-
-
-
-
-
-.hexagon {
-  position: relative;
-  width: 300px;
-  height: 173.21px;
-  background-color: #64C7CC;
-  margin: 86.60px 0;
-}
-
-.hexagon:before,
-.hexagon:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  border-left: 150px solid transparent;
-  border-right: 150px solid transparent;
-}
-
-.hexagon:before {
-  bottom: 100%;
-  border-bottom: 86.60px solid #64C7CC;
-}
-
-.hexagon:after {
-  top: 100%;
-  width: 0;
-  border-top: 86.60px solid #64C7CC;
-}
-
-
-
-    */
 @font-face {
   font-family: 'digital_dream';
   src: url("../../assets/font/DIGITALDREAM.ttf") format("truetype"); }

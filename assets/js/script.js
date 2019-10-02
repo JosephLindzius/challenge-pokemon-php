@@ -34,6 +34,7 @@ function playAnimation () {
 }
 playAnimation();
 
+
 document.getElementById("submit").addEventListener("click", function(){
     let pokemon = document.getElementById("input").value;
 
