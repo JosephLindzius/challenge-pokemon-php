@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="356457f5-00a7-4957-9e0e-7e127373e0db" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/animation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/scss/.sass-cache/4bb9e717233933420be9938d198828a8b1c7eb53/_jeroen.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/scss/.sass-cache/4bb9e717233933420be9938d198828a8b1c7eb53/_joseph.scssc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/scss/.sass-cache/4bb9e717233933420be9938d198828a8b1c7eb53/style.scssc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/challenge-pokedex-php.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/challenge-pokedex-php.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/animation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/.sass-cache/4bb9e717233933420be9938d198828a8b1c7eb53/_jeroen.scssc" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/.sass-cache/4bb9e717233933420be9938d198828a8b1c7eb53/_jeroen.scssc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/scss/_jeroen.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/_jeroen.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/_joseph.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/_joseph.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,7 +80,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569916023968</updated>
-      <workItem from="1569916025384" duration="44889000" />
+      <workItem from="1569916025384" duration="72146000" />
     </task>
     <servers />
   </component>
